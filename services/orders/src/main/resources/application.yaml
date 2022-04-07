@@ -1,0 +1,8 @@
+spring:
+  main:
+    banner-mode: off
+  data:
+    mongodb:
+      uri: mongodb://mongo/db
+skuServiceUrl: http://catalogue:8080
+customerServiceUrl: http://customers:8080

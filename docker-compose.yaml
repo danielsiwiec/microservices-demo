@@ -1,0 +1,40 @@
+---
+version: '3.7'
+services:
+  mongo:
+    image: mongo:5-focal
+    command:
+      - '--logpath'
+      - '/var/log/mongodb/mongod.log'
+  orders:
+    container_name: orders
+    pull_policy: build
+    build:
+      context: services/orders
+      dockerfile: ../../Dockerfile
+    ports:
+      - "8080:8080"
+  catalogue:
+    container_name: catalogue
+    pull_policy: build
+    build:
+      context: services/catalogue
+      dockerfile: ../../Dockerfile
+  email:
+    container_name: email
+    pull_policy: build
+    build:
+      context: services/email
+      dockerfile: ../../Dockerfile
+  customers:
+    container_name: customers
+    pull_policy: build
+    build:
+      context: services/customers
+      dockerfile: ../../Dockerfile
+  payments:
+    container_name: payments
+    pull_policy: build
+    build:
+      context: services/payments
+      dockerfile: ../../Dockerfile
